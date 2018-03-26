@@ -123,10 +123,14 @@ var setup = function setup(csrf) {
 };
 
 var getToken = function getToken() {
-  sendAjax('GET', 'getToken', null, function (result) {
+  sendAjax('GET', '/getToken', null, function (result) {
     setup(result.csrfToken);
   });
 };
+
+$(document).ready(function () {
+  getToken();
+});
 "use strict";
 
 var handleError = function handleError(message) {
